@@ -27,7 +27,7 @@ export default function Home() {
 
     async function PostDiscord(webhook) {
         const data = {
-            "content": "faggot"
+            content: "faggot"
         };
 
         const response = await fetch(webhook, {
@@ -35,7 +35,7 @@ export default function Home() {
             headers: {
                 "Content-Type": "application/json"
             },
-            mode: "cors",
+            // mode: "cors",
             body: JSON.stringify(data)
         });
 
@@ -46,7 +46,7 @@ export default function Home() {
     async function getres() {
         PostDiscord(process.env.WEBHOOK_URL)
         .then(res => {
-            return res.body
+            console.log(`DISCORD RESPONSE BODY :: \n${res.body}`)
         })
     }
 
