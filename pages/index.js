@@ -25,6 +25,34 @@ export default function Home() {
     };
     */
 
+    async function PostDiscord(webhook) {
+        const data = {
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "body": {
+                "content": "faggot"
+            }
+        };
+
+        const response = await fetch(webhook, {
+            method: "POST",
+            mode: "cors",
+            body: JSON.stringify(data)
+        });
+
+        const json = await response.json();
+        return json;
+    }
+
+    async function getres() {
+        PostDiscord("https://discord.com/api/webhooks/1057685269714833539/e_151v7PsonvlUzfjr5g4ohkiFX729tEzM8dqFld_G75o6euspg61cUEVZwcPF__-OCz")
+        .then(res => {
+            return res.body
+        })
+    }
+
     return <>
         <Grid2 container justifyContent="center" alignItems="center" marginTop={2} marginX={10}>
             <Card elevation={6} sx={{ width: "100%", px: 2, pb: 2, pt: 1 }}>
@@ -71,7 +99,9 @@ export default function Home() {
 
                 </CardContent>
 
-                <LoadingButton loading={btnLoad} variant="contained" href="/api/discord">
+                <LoadingButton loading={btnLoad} variant="contained" onClick={
+                    () => getres()
+                }>
                     Submit
                 </LoadingButton>
             </Card>
