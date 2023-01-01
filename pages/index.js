@@ -27,17 +27,14 @@ export default function Home() {
 
     async function PostDiscord(webhook) {
         const data = {
-            "method": "POST",
-            "headers": {
-                "Content-Type": "application/json"
-            },
-            "body": {
-                "content": "faggot"
-            }
+            "content": "faggot"
         };
 
         const response = await fetch(webhook, {
             method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
             mode: "cors",
             body: JSON.stringify(data)
         });
