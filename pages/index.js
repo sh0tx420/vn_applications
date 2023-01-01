@@ -47,7 +47,7 @@ export default function Home() {
     }
 
     async function getres() {
-        PostDiscord("https://discord.com/api/webhooks/1059216841093955696/DHIzbPvNRdKxmS0X8dxTh3_b9XGK-gKN9YrNOFf7CSIb9TESlyvB6tDngkMnoDha71TO")
+        PostDiscord(process.env.WEBHOOK_URL)
         .then(res => {
             return res.body
         })
