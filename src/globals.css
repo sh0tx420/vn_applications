@@ -3,3 +3,7 @@
 .vtext {
     font-family: "Prompt", sans-serif;
 }
+
+input:focus, textarea:focus {
+    outline: none;
+}
