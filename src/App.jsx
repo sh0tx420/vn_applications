@@ -1,8 +1,7 @@
 import VHeader from "./components/vheader";
 import VText from "./components/vtext";
 import {
-    VStack, HStack, Divider, FormControl, FormHelperText, Input, SimpleSelect, SimpleOption, Radio, RadioGroup, Textarea,
-    Select, SelectTrigger, SelectValue, SelectPlaceholder, SelectContent, SelectListbox, SelectOption, SelectOptionText, SelectOptionIndicator, SelectIcon, Button
+    VStack, HStack, Divider, FormControl, FormHelperText, Input, SimpleSelect, SimpleOption, Radio, RadioGroup, Textarea, Button
 } from "@hope-ui/solid";
 import { For, createSignal } from "solid-js";
 import { timezones_gmt } from "./data";
@@ -118,7 +117,14 @@ function App() {
 
                 </VStack>
 
-                <Button class="m-4 bg-red-700 hover:bg-red-500">Submit</Button>
+                <Button class="m-4 bg-red-700 hover:bg-red-500" onClick={
+                    () => fetch("localhost:3100/discord", {
+                        method: "POST",
+                        body: `${form()}${timezone}`
+                    })
+                }>
+                    Submit
+                </Button>
             </div>
         </div>
     );
